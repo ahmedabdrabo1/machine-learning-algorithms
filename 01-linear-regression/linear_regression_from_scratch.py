@@ -47,10 +47,6 @@
 # print("MSE:", calculate_mse(X, y))
 
 
-
-import numpy as np
-
-
 import numpy as np
 
 
