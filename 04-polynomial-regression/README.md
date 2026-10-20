@@ -19,9 +19,9 @@ We use a small dataset to understand how Polynomial Regression works.
 
 The relationship between the input and target values follows:
 
-\[
+$$
 y = 3 + 2x + x^2
-\]
+$$
 
 ## Mathematical Foundation
 
@@ -29,29 +29,29 @@ y = 3 + 2x + x^2
 
 For a polynomial of degree 2, the prediction equation is:
 
-\[
+$$
 \hat{y} = b_0 + b_1x + b_2x^2
-\]
+$$
 
 Where:
 
-- \(b_0\): Intercept.
-- \(b_1\): Coefficient of \(x\).
-- \(b_2\): Coefficient of \(x^2\).
-- \(x\): Input feature.
-- \(\hat{y}\): Predicted value.
+- $b_0$: Intercept.
+- $b_1$: Coefficient of $x$.
+- $b_2$: Coefficient of $x^2$.
+- $x$: Input feature.
+- $\hat{y}$: Predicted value.
 
 ### 2. Feature Transformation
 
-Polynomial Regression transforms each input \(x\) into polynomial features:
+Polynomial Regression transforms each input $x$ into polynomial features:
 
-\[
+$$
 x \rightarrow [x, x^2]
-\]
+$$
 
 The transformed dataset becomes:
 
-| x | x² | y |
+| x | $x^2$ | y |
 |---:|---:|---:|
 | 1 | 1 | 6 |
 | 2 | 4 | 11 |
@@ -60,19 +60,19 @@ The transformed dataset becomes:
 
 The model can then be written as:
 
-\[
+$$
 \hat{y} = b_0 + b_1x + b_2x^2
-\]
+$$
 
-Although the relationship between \(x\) and \(y\) can be curved, the model is still linear in its coefficients.
+Although the relationship between $x$ and $y$ can be curved, the model is still linear in its coefficients.
 
 ### 3. Mean Squared Error (MSE)
 
 Mean Squared Error measures the average squared difference between actual and predicted values.
 
-\[
+$$
 MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
-\]
+$$
 
 A lower MSE indicates that the predictions are closer to the actual values.
 
@@ -89,7 +89,7 @@ The model is implemented using NumPy and Gradient Descent.
 Main steps:
 
 1. Prepare the input and target arrays.
-2. Generate polynomial features \(x\) and \(x^2\).
+2. Generate polynomial features $x$ and $x^2$.
 3. Initialize the weights and bias.
 4. Calculate predictions.
 5. Calculate the prediction errors and MSE.
@@ -99,45 +99,45 @@ Main steps:
 
 The prediction function is:
 
-\[
+$$
 \hat{y} = X_{\text{poly}}w + b
-\]
+$$
 
 The weight gradient is:
 
-\[
+$$
 \frac{\partial MSE}{\partial w}
 = -\frac{2}{n}X_{\text{poly}}^T(y-\hat{y})
-\]
+$$
 
 The bias gradient is:
 
-\[
+$$
 \frac{\partial MSE}{\partial b}
 = -\frac{2}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)
-\]
+$$
 
 The parameters are updated using:
 
-\[
+$$
 w := w-\alpha\frac{\partial MSE}{\partial w}
-\]
+$$
 
-\[
+$$
 b := b-\alpha\frac{\partial MSE}{\partial b}
-\]
+$$
 
-Where \(\alpha\) is the learning rate.
+Where $\alpha$ is the learning rate.
 
 #### Learned Parameters
 
 The implementation converged approximately to:
 
-- \(b_0 = 3\)
-- \(b_1 = 2\)
-- \(b_2 = 1\)
+- $b_0 = 3$
+- $b_1 = 2$
+- $b_2 = 1$
 
-The final MSE was approximately \(1.31 \times 10^{-26}\), which is effectively zero for this example.
+The final MSE was approximately $1.31 \times 10^{-26}$, which is effectively zero for this example.
 
 ### 2. Using Scikit-learn
 
@@ -164,21 +164,21 @@ The Scikit-learn implementation should learn approximately the same coefficients
 
 ## Example Prediction
 
-For \(x = 5\):
+For $x = 5$:
 
-\[
+$$
 \hat{y} = 3 + 2(5) + 5^2
-\]
+$$
 
-\[
+$$
 \hat{y} = 3 + 10 + 25 = 38
-\]
+$$
 
 Therefore, the predicted value is:
 
-\[
+$$
 \boxed{\hat{y}=38}
-\]
+$$
 
 ## From Scratch vs. Scikit-learn
 
